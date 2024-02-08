@@ -10,10 +10,15 @@
             <input type="text" id="name" required /><br/>
             <label for="lastname">Last Name:</label>
             <input type="text" required id="lastname"><br/>
-            <button type="submit">Submit</button>
+            <button type="submit" onclick="buttonClick()">Submit</button>
         </form>
         <p id="fullName"></p>
         <script>
+
+            function buttonClick(){
+                document.getElementById("fullName").textContent = `Full Name:`;
+            }
+
             function handleSubmit(e){
                 e.preventDefault();
                 const firstName = event.target.elements['name'].value;
