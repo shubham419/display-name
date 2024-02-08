@@ -2,6 +2,24 @@
 <html>
   <head>
     <title>See your name</title>
+    <script>
+      function handleSubmit(e) {
+    e.preventDefault();
+    const firstName = event.target.elements["name"].value;
+    const lastName = event.target.elements["lastname"].value;
+
+    if (document.getElementById("fullName")) {
+      document.getElementById(
+        "fullName"
+      ).textContent = `Full Name: ${firstName} ${lastName}`;
+    } else {
+      const p = document.createElement("p");
+      p.textContent = `Full Name: ${firstName} ${lastName}`;
+      p.id = "fullName";
+      document.querySelector("body").append(p);
+    }
+  }
+    </script>
   </head>
   <body>
     <h1>Full Name Display</h1>
@@ -12,23 +30,5 @@
       <input type="text" required id="lastname" /><br />
       <button type="submit">Submit</button>
     </form>
-    <script>
-      function handleSubmit(e) {
-        e.preventDefault();
-        const firstName = event.target.elements["name"].value;
-        const lastName = event.target.elements["lastname"].value;
-
-        if (document.getElementById("fullName")) {
-          document.getElementById(
-            "fullName"
-          ).textContent = `Full Name: ${firstName} ${lastName}`;
-        } else {
-          const p = document.createElement("p");
-          p.textContent = `Full Name: ${firstName} ${lastName}`;
-          p.id = "fullName";
-          document.querySelector("body").append(p);
-        }
-      }
-    </script>
   </body>
 </html>
